@@ -102,3 +102,12 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+#JetBrains
+.idea
+
+# Forecast
+*.gif
+*.jpg
+members.txt
+secret.py
