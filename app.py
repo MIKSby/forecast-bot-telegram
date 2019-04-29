@@ -10,9 +10,9 @@ forecast = ForecastBot(token=telegram_token,
 
 
 if not forecast.is_available():
+    print(f'No forecast, downloading - {time.ctime()}')
     forecast.save()
     forecast.send()
-    print(f'No forecast, downloading - {time.ctime()}')
 else:
     print(f'Forecast loaded, start checking - {time.ctime()}')
     forecast.save()

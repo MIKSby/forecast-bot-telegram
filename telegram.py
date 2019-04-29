@@ -13,7 +13,10 @@ def delay(func):
                     return response
                 else:
                     print(f'Warning! Response code is {response.status_code}')
-                    sleep(30)
+                    if response.json()['ok'] is False:
+                        print(response.json()['description'], 'user:', kwargs['chat_id'])
+                        print(response.json())
+                    return False
             except (ConnectionError, ConnectTimeout) as exc:
                 print('Connection error!', exc)
                 sleep(10)
