@@ -4,8 +4,8 @@ import time
 
 
 forecast = ForecastBot(token=telegram_token,
-                       img_urls=['http://www.pogoda.by/mg/366/egrr_T26850.gif',
-                                 'http://www.pogoda.by/mg/366/egrr_W26850.gif'],
+                       img_urls=['http://www.pogoda.by/mg/366/noaa_T26850.gif',
+                                 'http://www.pogoda.by/mg/366/noaa_W26850.gif'],
                        followers='members.txt')
 
 
