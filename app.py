@@ -22,4 +22,4 @@ while True:
         forecast.save()
         forecast.send()
         print(f'Forecast updated - {time.ctime()}')
-    time.sleep(60)
+    time.sleep(300)
