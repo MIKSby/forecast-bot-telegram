@@ -111,3 +111,6 @@ venv.bak/
 *.jpg
 members.txt
 secret.py
+
+# pipenv
+Pipfile.lock
