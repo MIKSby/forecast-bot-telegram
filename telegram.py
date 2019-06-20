@@ -5,7 +5,7 @@ from time import sleep
 
 def delay(func):
     def wrap(*args, **kwargs):
-        sleep(1)
+        sleep(5)
         while True:
             try:
                 response = func(*args, **kwargs)
