@@ -18,6 +18,7 @@ def delay(func):
                     response_json = response.json()
                     if response_json.get('ok', None) is False:
                         print('------------------------------')
+                        print(response.json()['description'], 'user:', kwargs['chat_id'])
                         print(response_json)
                         continue
             except (ConnectionError, ConnectTimeout) as exc:
