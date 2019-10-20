@@ -32,7 +32,7 @@ class ForecastBot(TelegramApi):
         return True
 
     def send(self) -> None:
-        with open('members.txt', 'r') as members:
+        with open(self.followers_file, 'r') as members:
             for member in members:
                 member_id = member.strip()
                 self.send_message(chat_id=member_id,
@@ -78,3 +78,9 @@ class ForecastBot(TelegramApi):
                 with open(self.followers_file, 'w') as new_file:
                     for follower_id in {*old_followers, *new_followers}:
                         new_file.write(f'{follower_id}\n')
+                for follower in new_followers:
+                    self.send_message(chat_id=follower,
+                                      text='Прогноз обновлен⬇️')
+                    for url in self.img_urls:
+                        self.send_photo(chat_id=follower,
+                                        photo=self.state[self._get_fname(url)].content)
