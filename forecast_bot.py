@@ -1,11 +1,15 @@
 import hashlib
-import requests
-from telegram import TelegramApi, delay
 import os
+from typing import List
+
+import requests
+from requests import Response
+
+from telegram import TelegramApi, delay
 
 
 class ForecastBot(TelegramApi):
-    def __init__(self, token, img_urls, followers):
+    def __init__(self, token, img_urls: List[str], followers: str) -> None:
         super().__init__(token)
         self.state = {}
         self.img_urls = img_urls
@@ -27,7 +31,7 @@ class ForecastBot(TelegramApi):
                 return False
         return True
 
-    def send(self):
+    def send(self) -> None:
         with open('members.txt', 'r') as members:
             for member in members:
                 member_id = member.strip()
@@ -37,7 +41,7 @@ class ForecastBot(TelegramApi):
                     self.send_photo(chat_id=member_id,
                                     photo=self.state[self._get_fname(url)].content)
 
-    def save(self):
+    def save(self) -> None:
         for img in self.img_urls:
             fname = self._get_fname(img)
             r = requests.get(img, headers=self.headers)
@@ -48,7 +52,7 @@ class ForecastBot(TelegramApi):
                 self.state[f'{fname}_md5'] = self.find_hash(r.content)
 
     @delay
-    def _request(self, url: str):
+    def _request(self, url: str) -> Response:
         return requests.get(url, headers=self.headers)
 
     @staticmethod
