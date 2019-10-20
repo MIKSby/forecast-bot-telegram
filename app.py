@@ -12,7 +12,7 @@ except ModuleNotFoundError:
 forecast = ForecastBot(token=telegram_token,
                        img_urls=['http://www.pogoda.by/mg/366/noaa_T26850.gif',
                                  'http://www.pogoda.by/mg/366/noaa_W26850.gif'],
-                       followers='members.txt')
+                       followers_file='members.txt')
 
 if not forecast.is_available():
     print(f'No forecast, downloading - {time.ctime()}')
@@ -23,6 +23,7 @@ else:
     forecast.save()
 
 while True:
+    forecast.add_new_followers()
     if forecast.check_forecast():
         forecast.save()
         forecast.send()

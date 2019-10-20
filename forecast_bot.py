@@ -9,11 +9,11 @@ from telegram import TelegramApi, delay
 
 
 class ForecastBot(TelegramApi):
-    def __init__(self, token, img_urls: List[str], followers: str) -> None:
+    def __init__(self, token, img_urls: List[str], followers_file: str) -> None:
         super().__init__(token)
         self.state = {}
         self.img_urls = img_urls
-        self.followers = followers
+        self.followers_file = followers_file
         self.headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9;'
                                       ' rv:45.0) Gecko/20100101 Firefox/45.0',
                         'Connection': 'close'}
@@ -64,3 +64,17 @@ class ForecastBot(TelegramApi):
         md5 = hashlib.md5()
         md5.update(content)
         return md5.hexdigest()
+
+    def add_new_followers(self) -> None:
+        response = self.get_updates()
+        result = response.json().get('result')
+        if result:
+            senders = {str(x['message']['chat']['id']) for x in result}
+            with open(self.followers_file, 'r') as old_file:
+                old_followers = {x.strip() for x in old_file}
+
+            new_followers = old_followers.difference(senders)
+            if new_followers:
+                with open(self.followers_file, 'w') as new_file:
+                    for follower_id in {*old_followers, *new_followers}:
+                        new_file.write(f'{follower_id}\n')
