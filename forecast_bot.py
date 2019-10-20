@@ -73,8 +73,9 @@ class ForecastBot(TelegramApi):
             with open(self.followers_file, 'r') as old_file:
                 old_followers = {x.strip() for x in old_file}
 
-            new_followers = old_followers.difference(senders)
+            new_followers = senders.difference(old_followers)
             if new_followers:
+                print(f'new followers: {new_followers}')
                 with open(self.followers_file, 'w') as new_file:
                     for follower_id in {*old_followers, *new_followers}:
                         new_file.write(f'{follower_id}\n')
