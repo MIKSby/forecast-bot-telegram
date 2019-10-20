@@ -30,10 +30,11 @@ class ForecastBot(TelegramApi):
     def send(self):
         with open('members.txt', 'r') as members:
             for member in members:
-                self.send_message(chat_id=member.strip(),
+                member_id = member.strip()
+                self.send_message(chat_id=member_id,
                                   text='Прогноз обновлен⬇️')
                 for url in self.img_urls:
-                    self.send_photo(chat_id=member.strip(),
+                    self.send_photo(chat_id=member_id,
                                     photo=self.state[self._get_fname(url)].content)
 
     def save(self):
