@@ -2,7 +2,7 @@ from time import sleep
 
 import requests
 from requests import Response
-from requests.exceptions import ConnectionError, ConnectTimeout
+from requests.exceptions import ConnectionError, ConnectTimeout, ReadTimeout
 
 
 def delay(func):
@@ -21,7 +21,7 @@ def delay(func):
                         print('------------------------------')
                         print(response_json['description'], 'user:', kwargs['chat_id'])
                         return None
-            except (ConnectionError, ConnectTimeout) as exc:
+            except (ConnectionError, ConnectTimeout, ReadTimeout) as exc:
                 print('Connection error!', exc)
                 sleep(10)
 
