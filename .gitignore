@@ -111,6 +111,5 @@ venv.bak/
 *.jpg
 members.txt
 secret.py
-
-# pipenv
-Pipfile.lock
+bot_pic.png
+session*

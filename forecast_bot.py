@@ -1,16 +1,39 @@
 import hashlib
 import os
-from typing import List
+import re
+import time
+from typing import List, Optional
 
 import requests
+from PIL import Image, ImageDraw, ImageFont
+from bs4 import BeautifulSoup
+from pyrogram import Client
 from requests import Response
 
 from telegram import TelegramApi, delay
 
 
+def create_temp_image(temp: str) -> Image:
+    assert isinstance(temp, str)
+    image = Image.new('RGBA', (640, 640), (255, 255, 255, 255))
+    font = ImageFont.truetype('fonts/Roboto-Medium.ttf', 175)
+    d = ImageDraw.Draw(image)
+    d.text((5, 200), temp, font=font, fill=(0, 0, 0, 255))
+    image_name = 'bot_pic.png'
+    image.save(image_name)
+    return image_name
+
+
 class ForecastBot(TelegramApi):
-    def __init__(self, token, img_urls: List[str], followers_file: str) -> None:
+    def __init__(self, token, api_id, api_hash, img_urls: List[str], followers_file: str) -> None:
         super().__init__(token)
+        self.api_id = api_id
+        self.api_hash = api_hash
+        self.telegram_client = Client('session', api_hash=self.api_hash, api_id=self.api_id)
+        self.telegram_client.start()
+        self.telegram_client.get_dialogs()
+        self._bot_father_chat_id = 93372553
+        self._current_temp = 0.0
         self.state = {}
         self.img_urls = img_urls
         self.followers_file = followers_file
@@ -30,6 +53,29 @@ class ForecastBot(TelegramApi):
             if not os.path.isfile(self._get_fname(img)):
                 return False
         return True
+
+    def update_pic_temp(self):
+        new_temp = self.get_current_temp()
+        image_name = create_temp_image(new_temp)
+        self.telegram_client.send_message(text='/setuserpic', chat_id=self._bot_father_chat_id)
+        time.sleep(3)
+        self.telegram_client.send_message(text='@PogodaTheBot', chat_id=self._bot_father_chat_id)
+        time.sleep(3)
+        self.telegram_client.send_photo(photo=image_name, chat_id=self._bot_father_chat_id)
+
+    def get_current_temp(self) -> Optional[str]:
+        try:
+            html_doc: str = requests.get('http://www.belmeteo.net/').content
+        except requests.ConnectionError:
+            return None
+        soup = BeautifulSoup(html_doc, 'html.parser')
+        left_panel = soup.find_all('div', class_='leftSideBar')
+        current_temp_text = left_panel[0].ul.li.b.text
+        current_temp_find = re.findall(r'.\d+[.]\d..', current_temp_text)
+        assert len(current_temp_find) == 1
+        current_temp = current_temp_find[0]
+        if '-' not in current_temp:
+            return f'+{current_temp[1:]}'
 
     def send(self) -> None:
         with open(self.followers_file, 'r') as members:
