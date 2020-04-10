@@ -76,6 +76,8 @@ class ForecastBot(TelegramApi):
         current_temp = current_temp_find[0]
         if '-' not in current_temp:
             return f'+{current_temp[1:]}'
+        else:
+            return current_temp
 
     def send(self) -> None:
         with open(self.followers_file, 'r') as members:
