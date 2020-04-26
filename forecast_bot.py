@@ -56,6 +56,8 @@ class ForecastBot(TelegramApi):
 
     def update_pic_temp(self):
         new_temp = self.get_current_temp()
+        if new_temp is None:
+            return None
         image_name = create_temp_image(new_temp)
         self.telegram_client.send_message(text='/setuserpic', chat_id=self._bot_father_chat_id)
         time.sleep(3)
@@ -63,14 +65,18 @@ class ForecastBot(TelegramApi):
         time.sleep(3)
         self.telegram_client.send_photo(photo=image_name, chat_id=self._bot_father_chat_id)
 
-    def get_current_temp(self) -> Optional[str]:
+    @staticmethod
+    def get_current_temp() -> Optional[str]:
         try:
-            html_doc: str = requests.get('http://www.belmeteo.net/').content
+            html_doc: bytes = requests.get('http://www.belmeteo.net/').content
         except requests.ConnectionError:
             return None
         soup = BeautifulSoup(html_doc, 'html.parser')
         left_panel = soup.find_all('div', class_='leftSideBar')
-        current_temp_text = left_panel[0].ul.li.b.text
+        try:
+            current_temp_text = left_panel[0].ul.li.b.text
+        except IndexError:
+            return None
         current_temp_find = re.findall(r'.\d+[.]\d..', current_temp_text)
         assert len(current_temp_find) == 1
         current_temp = current_temp_find[0]
@@ -108,7 +114,7 @@ class ForecastBot(TelegramApi):
         return url.split('/')[-1]
 
     @staticmethod
-    def find_hash(content: str) -> str:
+    def find_hash(content: bytes) -> str:
         md5 = hashlib.md5()
         md5.update(content)
         return md5.hexdigest()
