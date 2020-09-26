@@ -24,6 +24,13 @@ def create_temp_image(temp: str) -> Image:
     return image_name
 
 
+def create_empty_temp_image() -> Image:
+    image = Image.new('RGBA', (640, 640), (255, 255, 255, 255))
+    image_name = 'bot_pic.png'
+    image.save(image_name)
+    return image_name
+
+
 class ForecastBot(TelegramApi):
     def __init__(self, token, api_id, api_hash, img_urls: List[str], followers_file: str) -> None:
         super().__init__(token)
@@ -56,9 +63,14 @@ class ForecastBot(TelegramApi):
 
     def update_pic_temp(self):
         new_temp = self.get_current_temp()
+        attempts = 0
+        while new_temp is None and attempts < 5:
+            attempts += 1
+            new_temp = self.get_current_temp()
         if new_temp is None:
-            return None
-        image_name = create_temp_image(new_temp)
+            image_name = create_empty_temp_image()
+        else:
+            image_name = create_temp_image(new_temp)
         self.telegram_client.send_message(text='/setuserpic', chat_id=self._bot_father_chat_id)
         time.sleep(3)
         self.telegram_client.send_message(text='@PogodaTheBot', chat_id=self._bot_father_chat_id)
