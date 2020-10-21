@@ -4,7 +4,7 @@ import time
 from forecast_bot import ForecastBot
 
 try:
-    from secret import telegram_token, api_hash, api_id
+    from secret import telegram_token, api_hash, api_id, phone_number
 except ModuleNotFoundError:
     print('Need create file "secret.py"')
     sys.exit(1)
@@ -14,7 +14,8 @@ forecast = ForecastBot(
     api_id=api_id,
     api_hash=api_hash,
     img_urls=['http://www.pogoda.by/mg/366/noaa_T26850.gif', 'http://www.pogoda.by/mg/366/noaa_W26850.gif'],
-    followers_file='members.txt'
+    followers_file='members.txt',
+    phone_number=phone_number,
 )
 
 if not forecast.is_available():

@@ -32,11 +32,11 @@ def create_empty_temp_image() -> Image:
 
 
 class ForecastBot(TelegramApi):
-    def __init__(self, token, api_id, api_hash, img_urls: List[str], followers_file: str) -> None:
+    def __init__(self, token, api_id, api_hash, img_urls: List[str], followers_file: str, phone_number: str) -> None:
         super().__init__(token)
         self.api_id = api_id
         self.api_hash = api_hash
-        self.telegram_client = Client('session', api_hash=self.api_hash, api_id=self.api_id)
+        self.telegram_client = Client('session', api_hash=self.api_hash, api_id=self.api_id, phone_number=phone_number)
         self.telegram_client.start()
         self.telegram_client.get_dialogs()
         self._bot_father_chat_id = 93372553

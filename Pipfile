@@ -7,10 +7,10 @@ verify_ssl = true
 
 [packages]
 requests = "==2.24.0"
-beautifulsoup4 = "==4.9.1"
+beautifulsoup4 = "==4.9.3"
 pillow = "==7.2.0"
 pyrogram = "==1.0.7"
-tgcrypto = "==1.2.1"
+tgcrypto = "==1.2.0"
 
 [requires]
 python_version = "3.7"

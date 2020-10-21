@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "90a239f2c4097601294283d9c698d2beec1a5cee3a7041b1221ffe16506c702a"
+            "sha256": "6a4399aa8e2834da6c43bcd6771bda95b613e5362c273bf10b0f13d97f2bd840"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -24,12 +24,12 @@
         },
         "beautifulsoup4": {
             "hashes": [
-                "sha256:73cc4d115b96f79c7d77c1c7f7a0a8d4c57860d1041df407dd1aae7f07a77fd7",
-                "sha256:a6237df3c32ccfaee4fd201c8f5f9d9df619b93121d01353a64a73ce8c6ef9a8",
-                "sha256:e718f2342e2e099b640a34ab782407b7b676f47ee272d6739e60b8ea23829f2c"
+                "sha256:4c98143716ef1cb40bf7f39a8e3eec8f8b009509e74904ba3a7b315431577e35",
+                "sha256:84729e322ad1d5b4d25f805bfa05b902dd96450f43842c4e99067d5e1369eb25",
+                "sha256:fff47e031e34ec82bf17e00da8f592fe7de69aeea38be00523c04623c04fb666"
             ],
             "index": "pypi",
-            "version": "==4.9.1"
+            "version": "==4.9.3"
         },
         "certifi": {
             "hashes": [
@@ -123,50 +123,50 @@
                 "sha256:1634eea42ab371d3d346309b93df7870a88610f0725d47528be902a0d95ecc55",
                 "sha256:a59dc181727e95d25f781f0eb4fd1825ff45590ec8ff49eadfd7f1a537cc0232"
             ],
-            "markers": "python_version >= '3.5'",
+            "markers": "python_version >= '3.0'",
             "version": "==2.0.1"
         },
         "tgcrypto": {
             "hashes": [
-                "sha256:03a30eea8c705453063ccd717571760419b7c23837760a41d84fb9b4579867a0",
-                "sha256:0b7790be25c1ea5cb7c05b2efb1d40f427efe6aa31ecde080136ea5eb8406870",
-                "sha256:1e81df8b6295ea121cf62eea89b997a25baac2765f6324e325ebc4400d030429",
-                "sha256:2776c7b746acbb8a5349ff40bfe506738e60a07da2886c481fcdd92fc0b937ef",
-                "sha256:319a8a58ac2a3d09d05574008a4d29f15d0446a7b930a932f119b709d4ad9423",
-                "sha256:3b46f2bb3945a92d976da65a82941543cc907ee30a3b29327bfa78ff1f33867f",
-                "sha256:414024b421bd429bc0fb681f1fd94982381cddc2fecf16629551d5982221928b",
-                "sha256:597d24debc4ef95bb14e0406e41951cfc5472853446344911214bcdd9a123b89",
-                "sha256:59929e440c12606cede6be57fb34c5abf8d0eeac8d5539635d3dd1b81a8c59d5",
-                "sha256:610fedcd99eedc6873c71af50af10645eeb1e7d2e5b41b515f070513ce90647b",
-                "sha256:7b7fae9d66dea83829607172248f00b0f4891e13b6356fdaa655403bdfaa4949",
-                "sha256:7c3c94f5683787de8168ba94dd5f8bccc87b9c84ad316169a23eb273f8614273",
-                "sha256:7e36c668de9e24dad4d599f9b354199d82efe56d4712083dc4993de2fed87b2d",
-                "sha256:822222ee462f0770a825deecbba459f74bcbba451b9f4b516590260e627b1494",
-                "sha256:9467a3b56337fcb5f0c6bc752b2d04a04de3fb2807920f311200822cb5bf5b6e",
-                "sha256:9c085e268cc7675f6c13f10789ed369a1554e8238322caeb0ead29591a52a3d8",
-                "sha256:a1703ce724a55254815a97430479805ad172d727435ca93f9012b4b8000517aa",
-                "sha256:a7bb91e047aae498b0463cc1d9edec1f1c11b1cf5a3401941c52b790c2875bde",
-                "sha256:aefc5fc6d4b3ddc976b69c7f50dabd2dc2406cbc37607421d104376487ee38c3",
-                "sha256:b0809363d53b02684ac2b6f3940360ea82b0a8bbe01591f1d1fddc1adbd0b393",
-                "sha256:bbb43e52b89b4aeb8502b05901ca2a84b27c97f609dd82d14d74e65ec61c8d38",
-                "sha256:bf6a07f5fe29df5d84d25b9d944e0d986c7f9a8b837137de8682f43f0d9f0bc3",
-                "sha256:d184b99792bfc29cd51675287241f715cc2959c3b5c21e616b0a2fcb2eeeec39",
-                "sha256:e423a03a2468325cde3e7b27a67898d6d360908915f9c4ae8465fcc025a18936",
-                "sha256:e93d810570109d4f5b8ceaa24d88d60c778627c3e0c1a90561a003c9add8fa5c",
-                "sha256:efc3dd2380eec99f1172416de1fba569815f5b2b570b658e77871c8087cc85d7",
-                "sha256:f05d540b2da1cbd2c2b8ea01659388897ff256e9bf32267061f71058851928b5",
-                "sha256:f5631a700546284ed9348c7f4de2fe98ce9bf4f69659fe37eec3421d8ae586a9"
+                "sha256:0115cc1ff48681e5ebfd088e806873b2982ec7ff7d8885360e752cd4ad53411b",
+                "sha256:187d73151fe349a4189c8c61c6690adc321284668ca276a84fa0ad0335e81f44",
+                "sha256:1dae9644e3528cdf94b61f6c469ce63b957538da8ae644c2efaa5a07c3f04ec9",
+                "sha256:23ab18f811dd956b0a1d309a9a8e1ac36d517421905457be2aea06712cfdb11c",
+                "sha256:2dcda39c4bf058815ee83ddbf8240b9ff4ecf27dc0af82d49a92c3ea628412c7",
+                "sha256:38f29a6b17481725de68023d31e8a6a0e27959dc1a8971eacff6f203fdff1751",
+                "sha256:3e2cb47df12e714997e7f9b78cd7f9b8b2df3c02ebfd6b9d135a91c642193450",
+                "sha256:55930d947a629110aff7f2489aee8d04739e2d7de811cdb665a001c956eef8c1",
+                "sha256:55b5bb1365f887b226ee7aea9b29b50cfaacad331c9b3243b06dd0f034dc951e",
+                "sha256:8596bcfc46177e67a5457b12a50a21b15ee921a083c7bc602abd134185e8aac1",
+                "sha256:8fb4ac960c860d80efdf2ca2b6da8a19372b2bc85e3dc4820e045e383515c5b4",
+                "sha256:912ab2cfdb891069c08382a5112cf0feaa8d75fdba5b9af1a7424a292230878f",
+                "sha256:957930d7ded067281ea13d0e549d10c076d08a4b9d3baaa03c69010e84960cea",
+                "sha256:9fef40c321b6e4d388eb98f4e1de3794ea0a395836ac1c42d5a83fe7430775e3",
+                "sha256:a51561c585ad198c8c85987e84729de19e8c83797481a9d9c8455a1a3b4e45bb",
+                "sha256:ab86b818df45d36f8e4f2bed75de4614be152e3bb6d963cda31b81598f21c86b",
+                "sha256:ac4fe98c4798254449ccde5d8004ae5cef8d0e4332e446f444a94ef788257393",
+                "sha256:c20ac1b089113ac8f1a9f0540afbe90e7b7730c81b374ce57e8da6ebb52bc7b0",
+                "sha256:c521569845b60bc5e25648ff9e14f60adebb771cc8c7c9db35f3d7ea4c91f4dc",
+                "sha256:ca5582d423bb63351182106af0034ff5269d391a778bc0ff08f6e2a108680e48",
+                "sha256:d03af149add90fcd6e3738545b366c7b0d8e595003e3eef2fe25342d8779bde0",
+                "sha256:d66143426621d23f33d789451ed65878998a46bdafa4a9cb1ddbe802f9bb4d69",
+                "sha256:e9e90824acebac0a30eacdf2bf413ec2bd47abd18c295629de353e092510ed68",
+                "sha256:ec2584ccb393a7b16196c9ad97e00ec14e7f912504f5de7e4a52367d898ef9e1",
+                "sha256:f1f2176bed946088acf5c95b128506abfb20b06363758a94546da9f004f39ab9",
+                "sha256:f612110fa46f07e6fab663c7a12e277f1bddd445e0677f0804abb85b673c65ed",
+                "sha256:f6aadb458b4ed879a5b8b3ae9304aaa1cecde797812370addc152a2861fcc6dd",
+                "sha256:f735ec4810bf1242242b864082cdc2b8887929a89a6db51aa62425ae9ea8762d"
             ],
             "index": "pypi",
-            "version": "==1.2.1"
+            "version": "==1.2.0"
         },
         "urllib3": {
             "hashes": [
-                "sha256:91056c15fa70756691db97756772bb1eb9678fa585d9184f24534b100dc60f4a",
-                "sha256:e7983572181f5e1522d9c98453462384ee92a0be7fac5f1413a1e35c56cc0461"
+                "sha256:8d7eaa5a82a1cac232164990f04874c594c9453ec55eef02eab885aa02fc17a2",
+                "sha256:f5321fbe4bf3fefa0efd0bfe7fb14e90909eb62a48ccda331726b4319897dd5e"
             ],
             "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4' and python_version < '4'",
-            "version": "==1.25.10"
+            "version": "==1.25.11"
         }
     },
     "develop": {}
